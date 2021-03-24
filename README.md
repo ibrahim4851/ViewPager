@@ -1,3 +1,5 @@
+## Note: Project hasn't finished yet.
+
 # ViewPager
   In this Kotlin project we are getting image URL's and showing them in a ViewPager with using following libraries:
   
