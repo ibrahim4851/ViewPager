@@ -127,7 +127,7 @@ override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
     }
 ```
 
-**MainActivity
+##MainActivity
 
 In our MainActivity we will need 3 variables:
 ```
