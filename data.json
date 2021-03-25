@@ -1,0 +1,26 @@
+{
+  "sample":[
+    {
+      "title": "Car",
+      "description":"That's an old looking car",
+      "image-url":"https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/app/src/main/res/drawable/oldcar.jpeg"
+    },
+    {
+      "title": "Flower",
+      "description":"Jade vine is one of the rarest flowers",
+      "image-url":"https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/app/src/main/res/drawable/flower.jpeg"
+    },
+    {
+      "title": "Pyramids",
+      "description":"The mass of one of the stones that make up the pyramids is about 2.5 tons.",
+      "image-url":"https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/app/src/main/res/drawable/pyramid.jpeg"
+    },
+    {
+      "title": "Lake",
+      "description":"Lake superior is the second largest lake in the world",
+      "image-url":"https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/app/src/main/res/drawable/lake.jpeg"
+    }
+    
+  ]
+
+}
