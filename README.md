@@ -137,3 +137,39 @@ private lateinit var viewPager : ViewPager
 private lateinit var adapter: Adapter
 private lateinit var model: MutableList<ViewPagerModel>
 ```
+
+Initialize in onCreate method:
+
+```
+model = ArrayList<ViewPagerModel>()
+viewPager = findViewById(R.id.viewPager)
+adapter = Adapter(model as ArrayList<ViewPagerModel>, applicationContext)
+viewPager.adapter = adapter
+request()
+```
+
+In request func, we are sending a request to an URL that which includes the JSON data that I created. The method of the request is GET. If response is successfull, firstly getting the Json array which named 'sample'. After that, we can easily reach the string values in that array list with giving the keywords. After getting all the datas we need, we're gonna add them in the ArrayList and run the notifyDataSetChanged function:
+
+```
+fun request() {
+        val mQueue: RequestQueue = Volley.newRequestQueue(this)C
+        val url = "https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/data.json"
+        val request = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                val jsonArray = response.getJSONArray("sample")
+                for (i in 0 until jsonArray.length()) {
+                    val jsonObject = jsonArray.getJSONObject(i)
+                    val description = jsonObject.getString("description")
+                    val title = jsonObject.getString("title")
+                    val imageUrl = jsonObject.getString("image-url")
+                    val imageModel = ViewPagerModel(title, description, imageUrl)
+                    model.add(imageModel)
+                }
+                adapter.notifyDataSetChanged()
+            })
+        { error -> error.printStackTrace() }
+        mQueue.add(request)
+    }
+```
+
