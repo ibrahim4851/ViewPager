@@ -2,22 +2,24 @@ package com.ibrahim.viewpager
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.NonNull
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 
-class Adapter : PagerAdapter() {
+class Adapter: PagerAdapter {
 
-    private lateinit var vPagerModel: List<ViewPagerModel>
-    private lateinit var layoutInflater: LayoutInflater
-    private lateinit var context: Context
+    var vPagerModel: List<ViewPagerModel>
+    lateinit var layoutInflater: LayoutInflater
+    var context: Context
 
-    fun Adapter(models: List<ViewPagerModel>, context: Context) {
-        this.vPagerModel = models
+    constructor(model: List<ViewPagerModel>, context: Context): super() {
+        this.vPagerModel = model
         this.context = context
     }
 
@@ -33,15 +35,16 @@ class Adapter : PagerAdapter() {
         layoutInflater = LayoutInflater.from(context)
         val view: View = layoutInflater.inflate(R.layout.viewpageritem, container, false)
 
-        var imageView: ImageView
-        var title: TextView
-        var content: TextView
+        val imageView: ImageView
+        val title: TextView
+        val content: TextView
 
         imageView = view.findViewById(R.id.imageview)
         title = view.findViewById(R.id.title)
         content = view.findViewById(R.id.content)
 
         Glide.with(context).load(vPagerModel.get(position).image).into(imageView)
+        Log.i("imageurl", vPagerModel.get(position).image)
         title.text = vPagerModel.get(position).title
         content.text = vPagerModel.get(position).content
 
@@ -53,6 +56,10 @@ class Adapter : PagerAdapter() {
 
         container.addView(view, 0)
         return view
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
     }
 
 }
