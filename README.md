@@ -127,6 +127,11 @@ override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
     }
 ```
 
+**MainActivity
 
-
-
+In our MainActivity we will need 3 variables:
+```
+private lateinit var viewPager : ViewPager
+private lateinit var adapter: Adapter
+private lateinit var model: MutableList<ViewPagerModel>
+```
