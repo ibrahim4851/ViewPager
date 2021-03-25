@@ -2,7 +2,6 @@ package com.ibrahim.viewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.viewpager.widget.ViewPager
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -22,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.viewPager)
         adapter = Adapter(model as ArrayList<ViewPagerModel>, applicationContext)
         viewPager.adapter = adapter
-        otherRequest()
+        request()
     }
 
 
-    fun otherRequest() {
+    fun request() {
         val mQueue: RequestQueue = Volley.newRequestQueue(this)
         val url = "https://raw.githubusercontent.com/ibrahim4851/ViewPager/master/data.json"
         val request = JsonObjectRequest(
