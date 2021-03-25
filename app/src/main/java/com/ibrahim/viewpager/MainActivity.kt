@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                     val imageModel = ViewPagerModel(title, description, imageUrl)
                     model.add(imageModel)
                 }
-                Log.i("modellist", model.toString())
                 adapter.notifyDataSetChanged()
             })
         { error -> error.printStackTrace() }

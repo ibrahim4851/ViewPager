@@ -44,12 +44,12 @@ class Adapter: PagerAdapter {
         content = view.findViewById(R.id.content)
 
         Glide.with(context).load(vPagerModel.get(position).image).into(imageView)
-        Log.i("imageurl", vPagerModel.get(position).image)
         title.text = vPagerModel.get(position).title
         content.text = vPagerModel.get(position).content
 
         view.setOnClickListener {
             val intent = Intent(context, Details::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.putExtra("detail", vPagerModel.get(position).content)
             context.startActivity(intent)
         }

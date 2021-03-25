@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Details">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/detailText"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
